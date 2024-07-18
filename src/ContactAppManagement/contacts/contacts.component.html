@@ -1,0 +1,27 @@
+<h4>Contact App</h4>
+<label for="name">Name</label>
+<input id="name" type="text" [(ngModel)]="contactName"/>
+<br>
+
+<label for="phone">Phone Number</label>
+<input id="phone" type="text" [(ngModel)]="contactNumber"/>
+<br>
+
+<label for="mail">Email</label>
+<input id="mail" type="text" [(ngModel)]="contactEmail"/>
+<br>
+
+<button *ngIf="!isEditing" (click)="createContact()">Create Contact</button>
+  <button *ngIf="isEditing" (click)="saveContact()">Save Contact</button>
+
+<div class="ShowSection">
+    <h4>Todo Tasks</h4>
+    <ul>
+        <li *ngFor="let contact of allContacts ; let i= index">
+            ID:{{contact.id}}     Name:{{contact.name}}   Phone Number :{{contact.phone_number}}  Email :{{contact.email}}
+            <button (click)="deleteContact(i)">Delete</button>
+            <button (click)="editContact(i)" >Edit</button>
+        </li>
+    </ul>
+    </div>
+
